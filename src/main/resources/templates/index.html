@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<HTML xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/index.css}" rel="stylesheet">
+	<title>Home</title>
+</head>
+
+<body>
+	<header>
+
+	</header>
+
+	<main>
+
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">NUMLINHA</th>
+					<th scope="col">NUMFUNC</th>
+					<th scope="col">NUMVINC</th>
+					<th scope="col">NOME</th>
+					<th scope="col">CPF</th>
+					<th scope="col">DTINI</th>
+					<th scope="col">DTFIM</th>
+					<th scope="col">CARGO</th>
+					<th scope="col">CODIGO_ATIVIDADE</th>
+					<th scope="col">SETOR</th>
+					<th scope="col">DISCIPLINA</th>
+					<th scope="col">AIH</th>
+					<th scope="col">ARQUIVO</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="r : ${rowForm}">
+					<td><input type="text" class="inputDate"></td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</main>
+
+</body>
+
+
+
+
+
+</HTML>
