@@ -5,20 +5,21 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 import formDomain.FormValidate;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class FormController {
 	
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String showForm() {		
-		return "home";
+		return "index";
 	}
 	
 	
+	
+}
 	
 }
