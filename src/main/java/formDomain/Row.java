@@ -9,18 +9,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "products")
-public class FormValidate {
+public class Row {
 	
 	public String numlinha, numfunc, numvinc, nome, cpf,  
 	cargo, codigo_atividade, setor, disciplina, aih, arquivo;
 	
 	public Date dtini, dtfim;	
 	
-	public FormValidate() {
+	public Row() {
 		super();
 	}
 
-	public FormValidate(String numlinha, String numfunc, String numvinc, String nome, String cpf, String cargo,
+	public Row(String numlinha, String numfunc, String numvinc, String nome, String cpf, String cargo,
 			String codigo_atividade, String setor, String disciplina, String aih, String arquivo, Date dtini,
 			Date dtfim) {
 		super();

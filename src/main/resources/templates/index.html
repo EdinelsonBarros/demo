@@ -36,6 +36,20 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr th:each="row, iter : ${listRows}">
+						<td class="editavel" th:text="${row.numlinha}" th:name="numlinha"></td>
+						<td class="editavel" th:text="${row.numfunc}"></td>
+						<td class="editavel" th:text="${row.numvinc}"></td>
+						<td class="editavel" th:text="${row.nome}"></td>
+						<td class="editavel" th:text="${row.cpf}"></td>
+						<td class="editavel" th:text="${row.cargo}"></td>
+						<td class="editavel" th:text="${row.codigo_atividade}"></td>
+						<td class="editavel" th:text="${row.setor}"></td>
+						<td class="editavel" th:text="${row.disciplina}"></td>
+						<td class="editavel" th:text="${row.aih}"></td>
+						<td class="editavel" th:text="${row.arquivo}"></td>
+						
+					</tr>
 					<tr th:each="i : ${#numbers.sequence(1, 100)}">
 						<td th:each="i : ${#numbers.sequence(1, 13)}" class="editavel"></td>
 					</tr>
