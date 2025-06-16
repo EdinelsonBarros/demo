@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import formDomain.FormValidate;
 
 @RestController
+@RequestMapping("/api")
 public class FormController {
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String showForm() {		
 		return "home";
 	}
