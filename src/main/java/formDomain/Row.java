@@ -38,6 +38,24 @@ public class Row {
 		this.dtini = dtini;
 		this.dtfim = dtfim;
 	}
+	
+	
+
+	public Row(String numlinha, String numfunc, String numvinc, String nome, String cpf, String cargo,
+			String codigo_atividade, String setor, String disciplina, String aih, String arquivo) {
+		super();
+		this.numlinha = numlinha;
+		this.numfunc = numfunc;
+		this.numvinc = numvinc;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cargo = cargo;
+		this.codigo_atividade = codigo_atividade;
+		this.setor = setor;
+		this.disciplina = disciplina;
+		this.aih = aih;
+		this.arquivo = arquivo;
+	}
 
 	public String getNumlinha() {
 		return numlinha;
