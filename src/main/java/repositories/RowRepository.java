@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import formDomain.Row;
 
 @Repository
-public interface FormValidateRepository extends JpaRepository<Row, String>  {
+public interface RowRepository extends JpaRepository<Row, String>  {
 
 }

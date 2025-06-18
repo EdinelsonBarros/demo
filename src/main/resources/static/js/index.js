@@ -52,7 +52,7 @@ $('#mytable').on('input custmoInput', 'td[contenteditable=true]', function() {
 			data: JSON.stringify(rowData),
 			success: function(response) {
 				alert('Linha salva com sucesso!');
-				localStorage.removeItem('linha_' + rowIndex);
+				//localStorage.removeItem('linha_' + rowIndex);
 				tr.find('td').attr('contenteditable', 'false');
 			},
 			error: function() {
