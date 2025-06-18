@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class Row {
 	
 	public String numlinha, numfunc, numvinc, nome, cpf,  
-	cargo, codigo_atividade, setor, disciplina, aih, arquivo;
+	cargo, codigo_atividade, setor, ch_arq, disciplina, aih, arquivo;
 	
 	public Date dtini, dtfim;	
 	
@@ -20,9 +20,11 @@ public class Row {
 		super();
 	}
 
+
+
 	public Row(String numlinha, String numfunc, String numvinc, String nome, String cpf, String cargo,
-			String codigo_atividade, String setor, String disciplina, String aih, String arquivo, Date dtini,
-			Date dtfim) {
+			String codigo_atividade, String setor, String ch_arq, String disciplina, String aih, String arquivo,
+			Date dtini, Date dtfim) {
 		super();
 		this.numlinha = numlinha;
 		this.numfunc = numfunc;
@@ -32,30 +34,14 @@ public class Row {
 		this.cargo = cargo;
 		this.codigo_atividade = codigo_atividade;
 		this.setor = setor;
+		this.ch_arq = ch_arq;
 		this.disciplina = disciplina;
 		this.aih = aih;
 		this.arquivo = arquivo;
 		this.dtini = dtini;
 		this.dtfim = dtfim;
 	}
-	
-	
 
-	public Row(String numlinha, String numfunc, String numvinc, String nome, String cpf, String cargo,
-			String codigo_atividade, String setor, String disciplina, String aih, String arquivo) {
-		super();
-		this.numlinha = numlinha;
-		this.numfunc = numfunc;
-		this.numvinc = numvinc;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.cargo = cargo;
-		this.codigo_atividade = codigo_atividade;
-		this.setor = setor;
-		this.disciplina = disciplina;
-		this.aih = aih;
-		this.arquivo = arquivo;
-	}
 
 	public String getNumlinha() {
 		return numlinha;
@@ -119,6 +105,14 @@ public class Row {
 
 	public void setSetor(String setor) {
 		this.setor = setor;
+	}
+	
+	public String getCh_arq() {
+		return ch_arq;
+	}
+
+	public void setCh_arq(String ch_arq) {
+		this.ch_arq = ch_arq;
 	}
 
 	public String getDisciplina() {

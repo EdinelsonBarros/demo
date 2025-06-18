@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import formDomain.Row;
@@ -26,17 +27,16 @@ public class FormController {
 	public String showForm(Model model) { 
 		return "index"; 
 	  }
+
+	
+	  @PostMapping("/rowSave") 
+	  public String addRows(@RequestBody Row request) { 
+		
+	  
+	  
+	  return "";
+	  }
 	 
-	
-	
-	/*
-	 * @PostMapping("/addRows") public String addRows(Model model) { Row newRow =
-	 * new Row(); listRows.add(newRow);
-	 * 
-	 * Solução aqui
-	 * https://www.baeldung.com/thymeleaf-list
-	 * }
-	 */
 	
 	
 	
