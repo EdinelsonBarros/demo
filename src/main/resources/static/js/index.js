@@ -1,39 +1,38 @@
-$(document).on('click', '.editavel', function () {
-	const td = $(this);
-	td.css("padding", "2px");
-	const textOriginal = td.text().trim();
-	
-	// Previne edição múltipla
-	if (td.find('input').length > 0) return;
+$(document).ready(function () {
+    $('#mytable td[contenteditable=true]').on('input', function () {
+        let td = $(this);
+        let tr = td.closest('tr');
+        let rowIndex = tr.index();
+        let colName = td.data('col');
+        let value = td.text().trim();
 
-	// Cria input
-	td.html(`<input type="text" value="${textOriginal}" />`);
-	td.find('input').focus().blur(function () {
-		const novoValor = $(this).val();
-		td.text(novoValor || textOriginal);
+        // Lê ou inicia dados salvos da linha
+        let rowData = JSON.parse(localStorage.getItem('linha_' + rowIndex)) || {};
+        rowData[colName] = value;
 
-		// Atualiza localStorage após edição
-		let qdtRows = parseInt($('#qtdrows').data('qtd'));
-		console.log("qtdRows =", qdtRows)
-		for (let i = 0; i < qdtRows; i++) {
-			const row = {
-				numlinha: $('#numlinha_' + i).text().trim(),
-				numfunc: $('#numfunc_' + i).text().trim(),
-				numvinc: $('#numvinc_' + i).text().trim(),
-				nome: $('#nome_' + i).text().trim(),
-				cpf: $('#cpf_' + i).text().trim(),
-				dtini: $('#dtini_' + i).text().trim(),
-				dtfim: $('#dtfim_' + i).text().trim(),
-				cargo: $('#cargo_' + i).text().trim(),
-				codigo_atividade: $('#codigo_atividade_' + i).text().trim(),
-				setor: $('#setor_' + i).text().trim(),
-				disciplina: $('#disciplina_' + i).text().trim(),
-				aih: $('#aih_' + i).text().trim(),
-				arquivo: $('#arquivo_' + i).text().trim(),
-			};
+        // Salva no localStorage
+        localStorage.setItem('linha_' + rowIndex, JSON.stringify(rowData));
 
-			localStorage.setItem('row_' + i, JSON.stringify(row));
-			console.log("Salvo Row_" + i, row);
-		}
-	});
+        // Verifica se todas as células foram preenchidas
+        let totalCols = tr.find('td').length;
+        let filledCols = Object.values(rowData).filter(v => v !== '').length;
+
+        if (filledCols === totalCols) {
+            // Envia para o backend
+            $.ajax({
+                url: '/api/linhas',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(rowData),
+                success: function (response) {
+                    alert('Linha salva com sucesso!');
+                    localStorage.removeItem('linha_' + rowIndex);
+                    tr.find('td').attr('contenteditable', 'false');
+                },
+                error: function () {
+                    alert('Erro ao salvar a linha!');
+                }
+            });
+        }
+    });
 });

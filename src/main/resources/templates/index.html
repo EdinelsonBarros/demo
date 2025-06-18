@@ -16,10 +16,9 @@
 
 	<main>
 		<p></p>
-		<form class="container-table" th:object="${rowList}">
-			<span th:attr="data-qtd=${rowList != null ? rowList.size() : 0}" id="qtdrows"></span>
+		<form class="container-table">
 			<div class="scroll-wrapper"></div>
-			<table>
+			<table id="mytable">
 				<thead>
 					<tr>
 						<th scope="col">NUMLINHA</th>
@@ -38,25 +37,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="row, iter : ${rowList}">
-						<td class="editavel" th:id="'numlinha_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].numlinha}"></td>
-						<td class="editavel" th:id="'numfunc_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].numfunc}"></td>
-						<td class="editavel" th:id="'numvinc_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].numvinc}"></td>
-						<td class="editavel" th:id="'nome_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].nome}"></td>
-						<td class="editavel" th:id="'cpf_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].cpf}"></td>
-						<td class="editavel" th:id="'dtini_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].dtini}"></td>
-						<td class="editavel" th:id="'dtfim_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].dtfim}"></td>
-						<td class="editavel" th:id="'cargo_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].cargo}"></td>
-						<td class="editavel" th:id="'codigo_atividade_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].codigo_atividade}"></td>
-						<td class="editavel" th:id="'setor_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].setor}"></td>
-						<td class="editavel" th:id="'disciplina_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].disciplina}"></td>
-						<td class="editavel" th:id="'aih_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].aih}"></td>
-						<td class="editavel" th:id="'arquivo_' + ${iter.index}" th:field="*{rowList[__${iter.index}__].arquivo}"></td>
-						
-						
-					</tr>
-					<tr th:each="i : ${#numbers.sequence(1, 100)}">
-						<td th:each="i : ${#numbers.sequence(1, 13)}" class="editavel"></td>
+					<tr tr th:each="i : ${#numbers.sequence(1, 100)}">
+						<td contenteditable="true" class="editavel" data-col="numlinha"></td>
+						<td contenteditable="true" class="editavel" data-col="numfunc"></td>
+						<td contenteditable="true" class="editavel" data-col="numvic"></td>
+						<td contenteditable="true" class="editavel" data-col="nome"></td>
+						<td contenteditable="true" class="editavel" data-col="cpf"></td>
+						<td contenteditable="true" class="editavel" data-col="dtini"></td>
+						<td contenteditable="true" class="editavel" data-col="dtfim"></td>
+						<td contenteditable="true" class="editavel" data-col="cargo"></td>
+						<td contenteditable="true" class="editavel" data-col="codigo_atividade"></td>
+						<td contenteditable="true" class="editavel" data-col="setor"></td>
+						<td contenteditable="true" class="editavel" data-col="disciplina"></td>
+						<td contenteditable="true" class="editavel" data-col="aih"></td>
+						<td contenteditable="true" class="editavel" data-col="arquivo"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -64,7 +58,6 @@
 	</main>
 	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
 	<script th:src="@{/js/index.js}"></script>
-
 
 </body>
 
